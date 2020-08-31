@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package movie;
+
+option go_package = "pb";
+
+message Movie {
+  string name = 1;
+  string synopsis = 2;
+}
+
+message CreateMoviePayload {
+  Movie data = 1;
+};
+
+message CreateMovieResponse {
+  string movieId = 1;
+}
+
+service MovieService {
+  rpc Create (CreateMoviePayload) returns (CreateMovieResponse) {};
+}
